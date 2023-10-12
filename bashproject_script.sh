@@ -45,3 +45,6 @@ do
 	#add proteome number, number of mcrA matches, and number of hsp70 matches to the final table
 	echo "proteome$protNum $mcrAMatch $hsp70Match" >> finalOutput.txt
 done
+
+echo "Proteome Number mcrA Presence hsp70 Matches" > candidates.txt
+cat  finalOutput.txt | grep -v -w "0" >> candidates.txt
