@@ -1,100 +1,51 @@
-proteomes/proteome_01.fasta , 0
-proteomes/proteome_02.fasta , 0
-proteomes/proteome_03.fasta , 1
-proteomes/proteome_04.fasta , 0
-proteomes/proteome_05.fasta , 1
-proteomes/proteome_06.fasta , 0
-proteomes/proteome_07.fasta , 1
-proteomes/proteome_08.fasta , 0
-proteomes/proteome_09.fasta , 0
-proteomes/proteome_10.fasta , 0
-proteomes/proteome_11.fasta , 0
-proteomes/proteome_12.fasta , 0
-proteomes/proteome_13.fasta , 0
-proteomes/proteome_14.fasta , 0
-proteomes/proteome_15.fasta , 1
-proteomes/proteome_16.fasta , 1
-proteomes/proteome_17.fasta , 0
-proteomes/proteome_18.fasta , 0
-proteomes/proteome_19.fasta , 2
-proteomes/proteome_20.fasta , 0
-proteomes/proteome_21.fasta , 0
-proteomes/proteome_22.fasta , 0
-proteomes/proteome_23.fasta , 2
-proteomes/proteome_24.fasta , 1
-proteomes/proteome_25.fasta , 0
-proteomes/proteome_26.fasta , 0
-proteomes/proteome_27.fasta , 0
-proteomes/proteome_28.fasta , 0
-proteomes/proteome_29.fasta , 1
-proteomes/proteome_30.fasta , 0
-proteomes/proteome_31.fasta , 0
-proteomes/proteome_32.fasta , 0
-proteomes/proteome_33.fasta , 0
-proteomes/proteome_34.fasta , 0
-proteomes/proteome_35.fasta , 0
-proteomes/proteome_36.fasta , 0
-proteomes/proteome_37.fasta , 0
-proteomes/proteome_38.fasta , 1
-proteomes/proteome_39.fasta , 1
-proteomes/proteome_40.fasta , 0
-proteomes/proteome_41.fasta , 0
-proteomes/proteome_42.fasta , 1
-proteomes/proteome_43.fasta , 0
-proteomes/proteome_44.fasta , 1
-proteomes/proteome_45.fasta , 1
-proteomes/proteome_46.fasta , 0
-proteomes/proteome_47.fasta , 0
-proteomes/proteome_48.fasta , 1
-proteomes/proteome_49.fasta , 0
-proteomes/proteome_50.fasta , 1
-proteomes/proteome_01.fasta 00
-proteomes/proteome_02.fasta 00
-proteomes/proteome_03.fasta 10
-proteomes/proteome_04.fasta 00
-proteomes/proteome_05.fasta 10
-proteomes/proteome_06.fasta 00
-proteomes/proteome_07.fasta 10
-proteomes/proteome_08.fasta 00
-proteomes/proteome_09.fasta 00
-proteomes/proteome_10.fasta 00
-proteomes/proteome_11.fasta 00
-proteomes/proteome_12.fasta 00
-proteomes/proteome_13.fasta 00
-proteomes/proteome_14.fasta 00
-proteomes/proteome_15.fasta 10
-proteomes/proteome_16.fasta 10
-proteomes/proteome_17.fasta 00
-proteomes/proteome_18.fasta 00
-proteomes/proteome_19.fasta 20
-proteomes/proteome_20.fasta 00
-proteomes/proteome_21.fasta 00
-proteomes/proteome_22.fasta 00
-proteomes/proteome_23.fasta 20
-proteomes/proteome_24.fasta 10
-proteomes/proteome_25.fasta 00
-proteomes/proteome_26.fasta 00
-proteomes/proteome_27.fasta 00
-proteomes/proteome_28.fasta 00
-proteomes/proteome_29.fasta 10
-proteomes/proteome_30.fasta 00
-proteomes/proteome_31.fasta 00
-proteomes/proteome_32.fasta 00
-proteomes/proteome_33.fasta 00
-proteomes/proteome_34.fasta 00
-proteomes/proteome_35.fasta 00
-proteomes/proteome_36.fasta 00
-proteomes/proteome_37.fasta 00
-proteomes/proteome_38.fasta 10
-proteomes/proteome_39.fasta 10
-proteomes/proteome_40.fasta 00
-proteomes/proteome_41.fasta 00
-proteomes/proteome_42.fasta 10
-proteomes/proteome_43.fasta 00
-proteomes/proteome_44.fasta 10
-proteomes/proteome_45.fasta 10
-proteomes/proteome_46.fasta 00
-proteomes/proteome_47.fasta 00
-proteomes/proteome_48.fasta 10
-proteomes/proteome_49.fasta 00
-proteomes/proteome_50.fasta 10
+Proteome Number mcrA Matches hsp70 Matches
+proteome1 0 4
+proteome2 0 2
+proteome3 1 3
+proteome4 0 4
+proteome5 1 2
+proteome6 0 0
+proteome7 1 2
+proteome8 0 5
+proteome9 0 2
+proteome10 0 3
+proteome11 0 6
+proteome12 0 6
+proteome13 0 3
+proteome14 0 1
+proteome15 1 1
+proteome16 1 1
+proteome17 0 3
+proteome18 0 8
+proteome19 2 1
+proteome20 0 3
+proteome21 0 5
+proteome22 0 8
+proteome23 2 2
+proteome24 1 2
+proteome25 0 5
+proteome26 0 1
+proteome27 0 1
+proteome28 0 1
+proteome29 1 1
+proteome30 0 1
+proteome31 0 7
+proteome32 0 4
+proteome33 0 0
+proteome34 0 1
+proteome35 0 1
+proteome36 0 3
+proteome37 0 2
+proteome38 1 1
+proteome39 1 1
+proteome40 0 2
+proteome41 0 2
+proteome42 1 3
+proteome43 0 3
+proteome44 1 1
+proteome45 1 3
+proteome46 0 2
+proteome47 0 2
+proteome48 1 1
+proteome49 0 3
+proteome50 1 3
