@@ -1,0 +1,44 @@
+#load the ref_sequences directory in the BioinformaticsProjectFA23 file
+cd BioinformaticsProjectFA23/ref_sequences
+
+#combine the genes in the directory to one .fasta file for each gene
+cat hsp70gene*.fasta > hsp70combined.fasta
+cat mcrAgene*.fasta > mcrAcombined.fasta
+
+#use muscle to create an aligned file of each gene's data
+## Usage: ~/Private/Biocomputing/tools/muscle -align muscle_file_name -output aligned_file_name
+~/Private/Biocomputing/tools/muscle -align hsp70combined.fasta -output hsp70_aligned.fasta
+~/Private/Biocomputing/tools/muscle -align mcrAcombined.fasta -output mcrA_aligned.fasta
+
+#use hmmbuild to creat an hmm file from the muscle file
+## Usage: ~/Private/Biocomputing/tools/hmmbuild hmm_file_name muscle_file_name
+~/Private/Biocomputing/tools/hmmbuild hsp70.hmm hsp70_aligned.fasta
+~/Private/Biocomputing/tools/hmmbuild mcrA.hmm mcrA_aligned.fasta
+
+#move the hmm files to the proteomes directory
+mv hsp70.hmm ~/BioinformaticsProjectFA23/proteomes
+mv mcrA.hmm ~/BioinformaticsProjectFA23/proteomes
+
+#enter the main directory to create the headers on the columns of the final output folder
+cd ../
+echo "Sample_name hsp_count mcrA_count" > matches.txt
+
+#enter the proteomes directory
+cd proteomes/
+
+##Uses the hmmsearch tool to create a file for the search matches between each proteome sample for each gene
+##assigns the counts of the matches (ignoring search match strength) to a variable named after the gene
+###recalls the file name, the hsp count, and the mcrA count on the same line and adds it into the final output folder without overwriting the existing file
+####for loop repeats these functions for every proteome in the proteomes directory
+for file in *.fasta
+do
+~/Private/Biocomputing/tools/hmmsearch --tblout hsp70searchtemp.hmm hsp70.hmm $file
+~/Private/Biocomputing/tools/hmmsearch --tblout mcrAsearchtemp.hmm mcrA.hmm $file
+hsp=$(cat hsp70searchtemp.hmm | grep -c -e "^[^#]")
+mcrA=$(cat mcrAsearchtemp.hmm | grep -c -e "^[^#]")
+echo "$file $hsp $mcrA" >> ~/BioinformaticsProjectFA23/matches.txt
+done
+
+#enter the main directory and create a final candidates file, filtering for only the proteome names that have both genes present
+cd ..
+cat matches.txt | grep -e "fasta.[1-9].[1-9]" | cut -d ' ' -f 1 | cut -d . -f 1 > candidates.txt
