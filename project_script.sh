@@ -12,8 +12,10 @@ cat mcrAgene_*.fasta >>  combined_mcrA_refsequences.txt
 
 # With aligned sequences we used  make the markov makeup thing
 
-~/Private/Biocomputing/tools/hmmbuild [outputfilename] [inputfilename]
+~/Private/Biocomputing/tools/hmmbuild ref_hsp70gene.hmm aligned_hsp70_refsequences.txt
+~/Private/Biocomputing/tools/hmmbuild ref_mcrAgene.hmm  aligned_mcrA_refsequences.txt
 
 #Use hmmsearch to find the matches in the genome
+# Should we  use a for loop for the proteome files?
 
 ~/Private/Biocomputing/tools/hmmsearch --tblout [output filename] *.hmm [genome filename]
