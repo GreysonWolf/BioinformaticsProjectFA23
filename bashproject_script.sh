@@ -46,5 +46,8 @@ do
 	echo "proteome$protNum $mcrAMatch $hsp70Match" >> finalOutput.txt
 done
 
-echo "Proteome Number mcrA Presence hsp70 Matches" > candidates.txt
-cat  finalOutput.txt | grep -v -w "0" >> candidates.txt
+echo "ProteomeNumber mcrAPresence hsp70Matches" > candidates.txt
+cat finalOutput.txt |tail -n +2 | grep -v -w "0" >> candidates.txt
+
+#This is our guess for how to sort the data
+cat candidates.txt | sed -e 's/\s[1-9]+\s/ Y /g' | sort -k3 -n -r > sortedcandidates.txt

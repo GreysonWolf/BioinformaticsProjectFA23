@@ -1,1 +1,17 @@
-Proteome Number mcrA Presence hsp70 Matches
+ProteomeNumber mcrAPresence hsp70Matches
+proteome3 1 3
+proteome5 1 2
+proteome7 1 2
+proteome15 1 1
+proteome16 1 1
+proteome19 2 1
+proteome23 2 2
+proteome24 1 2
+proteome29 1 1
+proteome38 1 1
+proteome39 1 1
+proteome42 1 3
+proteome44 1 1
+proteome45 1 3
+proteome48 1 1
+proteome50 1 3
