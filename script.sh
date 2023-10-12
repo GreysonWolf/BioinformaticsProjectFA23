@@ -42,4 +42,4 @@ done
 
 # Generate a text file with the names of the candidate pH-resistant methanogens
 # top 15
-cat sum_table.csv | tail -n +2 | grep -v "0$" | grep -v " 0," | sort -t , -k 3 -k 2 -r | head -n 15 >> candidates.txt
+cat sum_table.csv | tail -n +2 | grep -v "0$" | grep -v " 0," | sort -t , -k 3 -k 2 -r | head -n 15 | cut -d, -f1 >> candidates.txt
