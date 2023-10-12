@@ -7,7 +7,8 @@ cat mcrAgene_*.fasta >>  combined_mcrA_refsequences.txt
 #Once we have the combined files we can align the sequences
 # Not sure how we would run it for both the genes, or if that is necessary
 
-~/Private/Biocomputing/tools/muscle -align combined_*_refsequences.txt -output algined
+~/Private/Biocomputing/tools/muscle -align combined_hsp70gene_refsequences.txt -output algined_hsp70_refsequences.txt
+~/Private/Biocomputing/tools/muscle -align combined_mcrAgene_refsequences.txt -output algined_mcrA_refsequences.txt
 
 # With aligned sequences we used  make the markov makeup thing
 
