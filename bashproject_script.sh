@@ -63,3 +63,12 @@ cat candidates.csv |  sort -k3 -n -r >> sortedcandidates.csv
 # This will create a table the sorted candidates
 
 column sortedcandidates.csv -t  -s "," > sortedcandidates.tbl
+
+# remove all unnecessary files
+
+rm aligned_*_refsequences.txt
+rm combined_*_refsequences.txt
+rm sortedcandidates.csv
+rm finalOutput.csv
+rm candidates.csv
+rm ref_*gene.hmm
