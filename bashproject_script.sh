@@ -27,7 +27,7 @@ cat ref_sequences/hsp70gene_*.fasta > combined_hsp70_refsequences.txt
 let protNum=0
 
 #print column titles for table
-echo "Proteome Number mcrA Matches hsp70 Matches" > finalOutput.txt
+echo "Proteome Number, mcrA Matches, hsp70 Matches" > finalOutput.csv
 
 #loop for finding number of mcrA genes and hsp70 genes in list of proteomes
 for genome in proteomes/proteome*.fasta
@@ -43,11 +43,15 @@ do
 	hsp70Match=$(cat $genome.houtput | grep -v "^#" | wc -l)
 	rm $genome.houtput
 	#add proteome number, number of mcrA matches, and number of hsp70 matches to the final table
-	echo "proteome$protNum $mcrAMatch $hsp70Match" >> finalOutput.txt
+	echo "$protNum, $mcrAMatch, $hsp70Match" >> finalOutput.csv
 done
 
-echo "ProteomeNumber mcrAPresence hsp70Matches" > candidates.txt
-cat finalOutput.txt |tail -n +2 | grep -v -w "0" >> candidates.txt
+#this takes our final output file and creates a table
+
+column finalOutput.csv -t -s "," > outputTable.tbl
+
+echo "ProteomeNumber mcrAPresence hsp70Matches" > candidates.csv
+cat finalOutput.csv |tail -n +2 | grep -v -w "0" >> candidates.csv
 
 #This is our guess for how to sort the data
-cat candidates.txt | sed -e 's/\s[1-9]+\s/ Y /g' | sort -k3 -n -r > sortedcandidates.txt
+cat candidates.csv | sed -e 's/\s[1-9]+\s/ Y /g' | sort -k3 -n -r > sortedcandidates.csv
