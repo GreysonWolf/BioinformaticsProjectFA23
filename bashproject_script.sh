@@ -1,5 +1,6 @@
 # This script will identify the number of matches mcrA gene and hsp70 gene in a user inputed proteome file
-#usage: bash bashproject_script.sh
+#usage: bash bashproject_script.sh directoryName pathToTools
+
 
 #create search image for the mcrA gene
 
@@ -7,10 +8,10 @@
 cat ref_sequences/mcrAgene_*.fasta > combined_mcrA_refsequences.txt
 
 #align the mcrA reference sequences using muscle
-~/Private/Biocomputing/tools/muscle -align combined_mcrA_refsequences.txt -output aligned_mcrA_refsequences.txt
+$2/muscle -align combined_mcrA_refsequences.txt -output aligned_mcrA_refsequences.txt
 
 #build search image using hmmbuild
-~/Private/Biocomputing/tools/hmmbuild ref_mcrAgene.hmm aligned_mcrA_refsequences.txt
+$2/hmmbuild ref_mcrAgene.hmm aligned_mcrA_refsequences.txt
 
 
 #create search image for the hsp70 gene
@@ -19,10 +20,10 @@ cat ref_sequences/mcrAgene_*.fasta > combined_mcrA_refsequences.txt
 cat ref_sequences/hsp70gene_*.fasta > combined_hsp70_refsequences.txt
 
 #align the hsp70 reference sequences using muscle
-~/Private/Biocomputing/tools/muscle -align combined_hsp70_refsequences.txt -output aligned_hsp70_refsequences.txt
+$2/muscle -align combined_hsp70_refsequences.txt -output aligned_hsp70_refsequences.txt
 
 #build search image using hmmbuild
-~/Private/Biocomputing/tools/hmmbuild ref_hsp70gene.hmm aligned_hsp70_refsequences.txt
+$2/hmmbuild ref_hsp70gene.hmm aligned_hsp70_refsequences.txt
 
 #build table with proteome number, number of mcrA genes, and number of hsp70 genes
 
@@ -33,16 +34,16 @@ let protNum=0
 echo "Proteome Number, mcrA Matches, hsp70 Matches" > finalOutput.csv
 
 #loop for finding number of mcrA genes and hsp70 genes in list of proteomes
-for genome in proteomes/proteome*.fasta
+for genome in $1/proteome*.fasta
 do
 	#protNum will equal the number of the proteome being analyzed
 	let protNum=$protNum+1
 	#search proteome for mcrA matches, store number of matches in variable mcrAMatch
-	~/Private/Biocomputing/tools/hmmsearch --tblout $genome.moutput ref_mcrAgene.hmm $genome
+	$2/hmmsearch --tblout $genome.moutput ref_mcrAgene.hmm $genome
 	mcrAMatch=$(cat $genome.moutput | grep -v "^#" | wc -l)
 	rm $genome.moutput
 	#search proteome for hsp70 matches, store number of matches in variable hsp70Match
-	~/Private/Biocomputing/tools/hmmsearch --tblout $genome.houtput ref_hsp70gene.hmm $genome
+	$2/hmmsearch --tblout $genome.houtput ref_hsp70gene.hmm $genome
 	hsp70Match=$(cat $genome.houtput | grep -v "^#" | wc -l)
 	rm $genome.houtput
 	#add proteome number, number of mcrA matches, and number of hsp70 matches to the final table
