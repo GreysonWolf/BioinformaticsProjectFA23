@@ -24,8 +24,8 @@ $2/hmmbuild mcrAgeneCompile.hmm aligned_mcrAgene.fasta
 echo "Proteome , HSP70count , mcrAcount" >FinalOutput.csv
 for file in $3/*.fasta
 do
-  $2/hmmsearch --tblout hsp70.output $1/hsp70geneCompile.hmm $file
-  $2/hmmsearch --tblout mcrA.output $1/mcrAgeneCompile.hmm $file
+  $2/hmmsearch --tblout hsp70.output hsp70geneCompile.hmm $file
+  $2/hmmsearch --tblout mcrA.output mcrAgeneCompile.hmm $file
 
 #count the number of matches for each of the genes. Put the numbers into variables, so we can make an output table
   gene1count=$(cat hsp70.output | grep -v '#' | wc -l)
