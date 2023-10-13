@@ -18,3 +18,17 @@ muscle -align combined_McrA.fasta -output aligned_mcrA.fasta
 #This creates a hmm using hmmbuild tool
 hmmbuild hsp70geneCompile.hmm aligned_hsp70gene.fasta
 hmmbuild mcrAgeneCompile.hmm aligned_mcrAgene.fasta
+
+#This uses hmmsearch with our hmm we created to find the compatibility between the proteome and reference sequence
+echo "Proteome , HSP70count , mcrAcount" >FinalOutput.csv
+for file in *.fasta
+do
+  ~/Private/Biocomputing/tools/hmmsearch --tblout hsp70.output ~/Private/Biocomputing/BioinformaticsProjectFA23/ref_sequences/hsp70geneCompile.hmm $file
+  ~/Private/Biocomputing/tools/hmmsearch --tblout mcrA.output ~/Private/Biocomputing/BioinformaticsProjectFA23/ref_sequences/mcrAgeneCompile.hmm $file
+#count the number of matches for each of the genes. Put the numbers into variables, so we can make an output table
+gene1count=$(cat hsp70.output | grep -v '#' | wc -l)
+gene2count=$(cat mcrA.output | grep -v '#' | wc -l)
+name=$(echo $file | cut -d . -f 1)
+#We then take these 3 variables and output them into a final .csv file
+echo "$name , $gene1count , $gene2count" >>FinalOutput.csv
+done
