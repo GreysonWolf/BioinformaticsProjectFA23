@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_048120720.1       -          mcrA_muscle          -                  0 1112.0   2.6         0 1111.8   2.6   1.0   1   0   0   1   1   1   1 MULTISPECIES: coenzyme-B sulfoethylthiotransferase subunit alpha 
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      mcrA_aligned.hmm
+# Target file:     /afs/crc.nd.edu/user/g/gwaddel3/Private/Biocomputing/BioinformaticsProjectFA23/proteomes/proteome_50.fasta
+# Option settings: /afs/crc.nd.edu/user/g/gwaddel3/Private/Biocomputing/tools/hmmsearch --tblout proteome_output_mcrA_50.txt mcrA_aligned.hmm /afs/crc.nd.edu/user/g/gwaddel3/Private/Biocomputing/BioinformaticsProjectFA23/proteomes/proteome_50.fasta 
+# Current dir:     /afs/crc.nd.edu/user/g/gwaddel3/Private/Biocomputing/BioinformaticsProjectFA23
+# Date:            Thu Oct 12 13:34:34 2023
+# [ok]
