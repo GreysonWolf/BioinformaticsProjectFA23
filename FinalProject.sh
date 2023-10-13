@@ -14,7 +14,7 @@ done
 
 #These compiled files then are aligned by muscle for analysis. It then asks the user for the path to the directory that muscle is in and saves it as variable $2
 $2/muscle -align hsp70geneCompile.fasta -output aligned_hsp70gene.fasta
-$2/muscle -align mcrAgeneCompile.fasta -output aligned_mcrA.fasta
+$2/muscle -align mcrAgeneCompile.fasta -output aligned_mcrAgene.fasta
 
 #This creates a hmm using hmmbuild tool
 $2/hmmbuild hsp70geneCompile.hmm aligned_hsp70gene.fasta
