@@ -1,8 +1,8 @@
-# This script will identify the number of matches for the mcrA gene and hsp70 gene in proteome genomes
-# The output is two tables: finalOutput.tbl, which shows the numnber of matches for both genes for all proteomes, and
+# this script will identify the number of matches for the mcrA gene and hsp70 gene in proteome genomes
+# the output is two tables: finalOutput.tbl, which shows the numnber of matches for both genes for all proteomes, and
 # sortedcandidates.tbl, which shows the proteomes containing both genes sorted by number of hsp70 genes (high to low)
 # the user inputs a directory name containing files of the format proteome#.fasta to be searched for the genes (argument 1)
-# User also inputs the absolute path to the tools directory, which should contain muscle, hmmbuild and hmmsearch (argument 2)
+# user also inputs the absolute path to the tools directory, which should contain muscle, hmmbuild and hmmsearch (argument 2)
 # usage: bash bashproject_script.sh directoryName absPathToTools
 
 # create search image for the mcrA gene
