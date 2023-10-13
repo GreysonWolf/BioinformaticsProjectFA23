@@ -47,5 +47,6 @@ done
 
 ## proteomes to look into further
 # sort proteome.csv by the number of mcra genes, then the number of hsp70 genes
-cat proteometable.csv | grep -E -w -v 0 | sort -r -t , -k 3,2 > proteome_summary.csv
+cat proteometable.csv | grep -E -w -v 0 | sort -r -t , -k 3 -k 2 | cut -d , -f 1 | tr "," "\n" >> proteome_summary.txt
+echo "These proteomes contain at least one copy of each gene. The top-most proteomes have the most hsp70 genes and are the best candidates." >> proteome_summary.txt
 
