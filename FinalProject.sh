@@ -27,10 +27,10 @@ do
   $2/hmmsearch --tblout hsp70.output hsp70geneCompile.hmm $file
   $2/hmmsearch --tblout mcrA.output mcrAgeneCompile.hmm $file
 
-#count the number of matches for each of the genes. Put the numbers into variables, so we can make an output table
+#count the number of matches for each of the genes. Put the numbers into variables, so we can make an output table, then make names of the proteomes using cut to take out the path
   gene1count=$(cat hsp70.output | grep -v '#' | wc -l)
   gene2count=$(cat mcrA.output | grep -v '#' | wc -l)
-  name=$(echo $file | cut -d . -f 1)
+  name=$(echo $file | cut -d / -f 10 |cut -d . -f 1)
 
 #We then take these 3 variables and output them into a final .csv file
   echo "$name , $gene1count , $gene2count" >>FinalOutput.csv
