@@ -1,3 +1,6 @@
+# This script will identify the number of matches mcrA gene and hsp70 gene in a user inputed proteome file
+#usage: bash bashproject_script.sh
+
 #create search image for the mcrA gene
 
 #combine all reference sequences for mcrA gene into one file
@@ -50,8 +53,13 @@ done
 
 column finalOutput.csv -t -s "," > outputTable.tbl
 
-echo "ProteomeNumber mcrAPresence hsp70Matches" > candidates.csv
+
 cat finalOutput.csv |tail -n +2 | grep -v -w "0" >> candidates.csv
 
-#This is our guess for how to sort the data
-cat candidates.csv | sed -e 's/\s[1-9]+\s/ Y /g' | sort -k3 -n -r > sortedcandidates.csv
+# This is how to sort the data
+echo "ProteomeNumber,mcrAMatches,hsp70Matches" > sortedcandidates.csv
+cat candidates.csv |  sort -k3 -n -r >> sortedcandidates.csv
+
+# This will create a table the sorted candidates
+
+column sortedcandidates.csv -t  -s "," > sortedcandidates.tbl
