@@ -1,0 +1,4 @@
+Final recommendation for grad student:
+Proteomes 3,5,7,15,16,19,23,24,29,38,39,42,44,45,48,50 all have the mcrA gene present
+Only proteomes 3, 42, 45, and 50  have more than 2 copies for the HSP70  gene (most pH resistant.) 
+Because of this, we recommend that the student move forward with isolates 3, 42, 45, and 50
