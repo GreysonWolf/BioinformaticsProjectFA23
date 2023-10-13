@@ -1,8 +1,12 @@
-# This script will identify the number of matches mcrA gene and hsp70 gene in a user inputed proteome file
-#usage: bash bashproject_script.sh directoryName pathToTools
-
+# This script will identify the number of matches for the mcrA gene and hsp70 gene in proteome genomes
+# The output is two tables: finalOutput.tbl, which shows the numnber of matches for both genes for all proteomes, and 
+# sortedcandidates.tbl, which shows the proteomes containing both genes sorted by number of hsp70 genes (high to low)
+# the user inputs a directory name containing files of the format proteome#.fasta to be searched for the genes (argument 1)
+# User also inputs the absolute path to the tools directory, which should contain muscle, hmmbuild and hmmsearch (argument 2)
+#usage: bash bashproject_script.sh directoryName absPathToTools
 
 #create search image for the mcrA gene
+# script assumes that the ref sequnces are stored in the directory ref_sequences with file names in the format mcrAgene_*.fasta
 
 #combine all reference sequences for mcrA gene into one file
 cat ref_sequences/mcrAgene_*.fasta > combined_mcrA_refsequences.txt
@@ -15,6 +19,7 @@ $2/hmmbuild ref_mcrAgene.hmm aligned_mcrA_refsequences.txt
 
 
 #create search image for the hsp70 gene
+#script assumes that the ref ref sequences are stored in the directory ref_sequences with the file names in the format hsp70gene_*.fasta
 
 #combine all reference sequences for hsp70 into one file
 cat ref_sequences/hsp70gene_*.fasta > combined_hsp70_refsequences.txt
@@ -34,6 +39,7 @@ let protNum=0
 echo "Proteome Number, mcrA Matches, hsp70 Matches" > finalOutput.csv
 
 #loop for finding number of mcrA genes and hsp70 genes in list of proteomes
+
 for genome in $1/proteome*.fasta
 do
 	#protNum will equal the number of the proteome being analyzed
@@ -46,7 +52,7 @@ do
 	$2/hmmsearch --tblout $genome.houtput ref_hsp70gene.hmm $genome
 	hsp70Match=$(cat $genome.houtput | grep -v "^#" | wc -l)
 	rm $genome.houtput
-	#add proteome number, number of mcrA matches, and number of hsp70 matches to the final table
+	#add proteome number, number of mcrA matches, and number of hsp70 matches to the final output file
 	echo "$protNum, $mcrAMatch, $hsp70Match" >> finalOutput.csv
 done
 
@@ -57,15 +63,15 @@ column finalOutput.csv -t -s "," > outputTable.tbl
 
 cat finalOutput.csv |tail -n +2 | grep -v -w "0" >> candidates.csv
 
-# This is how to sort the data
+# This is how to sort the datafile with the proteome that has the most hsp70 matches at the top
 echo "ProteomeNumber,mcrAMatches,hsp70Matches" > sortedcandidates.csv
 cat candidates.csv |  sort -k3 -n -r >> sortedcandidates.csv
 
-# This will create a table the sorted candidates
+# This will create a table of the sorted candidates
 
 column sortedcandidates.csv -t  -s "," > sortedcandidates.tbl
 
-# remove all unnecessary files
+# remove all unnecessary files that were created with the script
 
 rm aligned_*_refsequences.txt
 rm combined_*_refsequences.txt
